@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign in</title>
+  <link rel="stylesheet" href="src/styles/auth.css">
+  <link rel="stylesheet" href="src/styles/reset.css">
+  <link rel="stylesheet" href="src/styles/dialog.css">
+  <link rel="stylesheet" href="src/styles/index.css">
+</head>
+
+<body>
+  <div class="auth dialog">
+    <div class="dialog-head">
+      <h4 class="dialog-head__title">Sign In</h4>
+      <button class="dialog-head__close-btn">
+        <img src="src/assets/icons/close-modal.svg" alt="close modal" />
+      </button>
+      <hr class="dialog-head__line">
+    </div>
+
+    <p class="auth-description">
+      Bring Change with your Code. Contribute to the open-source community.
+    </p>
+
+    <a href="sign-up.html" target="_blank" class="auth-btn">
+      Sign up
+    </a>
+
+    <div class="auth-asterisk">Or</div>
+
+    <form class="auth-form">
+      <input type="email" placeholder="Email" required="true" class="auth-form__input">
+      <input type="password" placeholder="Password" required="true" class="auth-form__input">
+      <button type="submit" class="auth-btn auth-btn--secondary">
+        Sign in
+      </button>
+    </form>
+  </div>
+</body>
+
+</html>

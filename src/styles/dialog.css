@@ -1,0 +1,41 @@
+.dialog {
+  background: #fff;
+  box-shadow: 0 22px 35px rgba(0, 0, 0, 0.12);
+  border-radius: 26px;
+}
+
+.dialog-head {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 30px;
+}
+
+.dialog-head__title {
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 150%;
+  color: #333;
+}
+
+.dialog-head__close-btn {
+  padding: 0 8px;
+  display: flex;
+  align-items: center;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.dialog-head__close-btn:hover {
+  background-color: grey;
+}
+
+.dialog-head__line {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+  background-color: #c4c4c4;
+}

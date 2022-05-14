@@ -1,0 +1,69 @@
+.card {
+  padding: 6px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+}
+
+.card:not(:last-child) {
+  margin-right: 18px;
+}
+
+.card:hover {
+  box-shadow: 0 2px 4px rgba(59, 69, 123, 0.2), 0 4px 8px rgba(92, 107, 192, 0.2);
+  border-radius: 8px;
+}
+
+.card-description {
+  margin-top: 12px;
+  margin-bottom: 8px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: 0.0275em;
+  color: #19191D;
+}
+
+.card-price {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 150%;
+  color: rgba(0, 0, 0, 0.87);
+}
+
+.card-caption {
+  margin-bottom: var(--space-m);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 143%;
+  color: var(--jumbo-color);
+}
+
+.card-btns-wrap {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.card-control-btn {
+  padding: var(--space-s) var(--space-m);
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 143%;
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--blue-color);
+  border-radius: 4px;
+  color: var(--mariner-color);
+  cursor: pointer;
+}
+
+.card-control-btn:hover {
+  background-color: var(--blue-active-color);
+}
+
+.card-control-btn img {
+  display: inline-block;
+  margin-right: var(--space-s);
+}

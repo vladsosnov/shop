@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign up</title>
+  <link rel="stylesheet" href="src/styles/auth.css">
+  <link rel="stylesheet" href="src/styles/reset.css">
+  <link rel="stylesheet" href="src/styles/dialog.css">
+  <link rel="stylesheet" href="src/styles/index.css">
+</head>
+
+<body>
+  <div class="auth dialog">
+    <div class="dialog-head">
+      <h4 class="dialog-head__title">Sign Up</h4>
+      <button class="dialog-head__close-btn">
+        <img src="src/assets/icons/close-modal.svg" alt="close modal" />
+      </button>
+      <hr class="dialog-head__line">
+    </div>
+
+    <p class="auth-description">
+      Bring Change with your Code. Contribute to the open-source community.
+    </p>
+
+    <a href="sign-in.html" target="_blank" class="auth-btn">
+      Sign in
+    </a>
+
+    <div class="auth-asterisk">Or</div>
+
+    <form class="auth-form">
+      <div class="auth-form__name-wrap">
+        <input type="text" placeholder="First name" required="true" class="auth-form__input">
+        <input type="text" placeholder="Last name" required="true" class="auth-form__input">
+      </div>
+      <input type="email" placeholder="Email" required="true" class="auth-form__input">
+      <input type="password" placeholder="Password" required="true" class="auth-form__input">
+      <button type="submit" class="auth-btn auth-btn--secondary">
+        Create New Account
+      </button>
+    </form>
+
+    <p class="auth-terms">
+      By joining, you agree to our Terms of Service and Privacy Policy
+    </p>
+  </div>
+</body>
+
+</html>
