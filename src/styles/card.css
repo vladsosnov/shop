@@ -4,6 +4,7 @@
   flex-direction: column;
   align-items: center;
   cursor: pointer;
+  transition: all 0.4s ease-in-out;
 }
 
 .card:not(:last-child) {
@@ -57,10 +58,23 @@
   border-radius: 4px;
   color: var(--mariner-color);
   cursor: pointer;
+  transition: all 0.4s ease-in;
 }
 
 .card-control-btn:hover {
+  color: var(--white-color);
   background-color: var(--blue-active-color);
+}
+
+.card-control-btn__icon {
+  display: inline-flex;
+  margin-right: 6px;
+  transition: stroke 0.4s ease-in;
+  stroke: var(--blue-active-color);
+}
+
+.card-control-btn:hover .card-control-btn__icon {
+  stroke: var(--white-color);;
 }
 
 .card-control-btn img {

@@ -32,7 +32,7 @@
           <span class="cart-counter">5</span>
           Cart
         </a>
-        <img src="src/assets/img/user-avatar.png" alt="user avatar" />
+        <!-- <img src="src/assets/img/user-avatar.png" alt="user avatar" /> -->
       </div>
     </div>
   </header>
@@ -114,17 +114,17 @@
       </div>
     </aside>
     <main class="main">
-      <div>
-        <select name="sort">
+      <div class="main-sort">
+        <select name="sort" class="main-sort__select">
           <option value="uselessFirst" selected>Useless first</option>
           <option value="uselessLast">Useless last</option>
           <option value="date">By date</option>
         </select>
-        <div>
-          <button>
+        <div class="main-sort__control">
+          <button class="main-sort__btn main-sort__btn--active">
             <img src="src/assets/icons/view-list.svg" alt="list view">
           </button>
-          <button>
+          <button class="main-sort__btn">
             <img src="src/assets/icons/view-grid.svg" alt="grid view">
           </button>
         </div>
@@ -199,28 +199,28 @@
         </li>
       </ul>
 
-      <ul>
-        <li>
+      <ul class="main-features">
+        <li class="main-features__item">
           <img src="src/assets/img/lightbulb-on-outline.png" alt="clear & usable user flows">
-          <h3>Clear & Usable user flows</h3>
-          <p>Let’s boost your marketplace</p>
+          <h3 class="item-title">Clear & Usable user flows</h3>
+          <p class="item-description">Let’s boost your marketplace</p>
         </li>
-        <li>
+        <li class="main-features__item">
           <img src="src/assets/img/auto-fix.png" alt="fine & styled components">
-          <h3>Fine & Styled components</h3>
-          <p>Speed up with Set product templates</p>
+          <h3 class="item-title">Fine & Styled components</h3>
+          <p class="item-description">Speed up with Set product templates</p>
         </li>
-        <li>
+        <li class="main-features__item">
           <img src="src/assets/img/palette.png" alt="customizable & reusable">
-          <h3>Customizable & Reusable</h3>
-          <p>Take our UX patterns and rebuild</p>
+          <h3 class="item-title">Customizable & Reusable</h3>
+          <p class="item-description">Take our UX patterns and rebuild</p>
         </li>
       </ul>
     </main>
   </div>
 
-  <footer>
-    <img src="src/assets/icons/all-rights-icon.svg" alt="all rights reserved icon">
+  <footer class="footer">
+    <img src="src/assets/icons/all-rights-icon.svg" alt="all rights reserved">
     2022 All Rights Reserved.
   </footer>
 </body>

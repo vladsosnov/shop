@@ -29,6 +29,7 @@
   background-color: var(--blue-color);
   border-radius: 5px;
   cursor: pointer;
+  transition: background-color 0.4s ease-in;
 }
 
 .auth-btn:hover {
@@ -40,7 +41,7 @@
 }
 
 .auth-btn--secondary:hover {
-  background-color: #6d7586;
+  background-color: #444954;
 }
 
 .auth-asterisk {
@@ -74,6 +75,11 @@
   background-color: #fff;
   border: 2px solid #c8d1e6;
   border-radius: 5px;
+  transition: border 0.4s ease-in;
+}
+
+.auth-form__input:hover {
+  border: 2px solid var(--jumbo-color);
 }
 
 .auth-form__input::placeholder {
