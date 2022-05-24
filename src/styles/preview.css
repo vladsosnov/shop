@@ -61,3 +61,17 @@
 .preview-body__btn .icon {
   margin-right: 12px;
 }
+
+@media (max-width: 576px) {
+  .preview-body {
+    flex-direction: column;
+  }
+
+  .description-price {
+    font-size: 16px;
+  }
+
+  .preview-body__description {
+    margin-bottom: 12px;
+  }
+}

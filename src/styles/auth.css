@@ -122,4 +122,9 @@
   .auth-terms {
     padding: 0 12px;
   }
+
+  .auth-form__input::placeholder {
+    font-size: 16px;
+    line-height: 18px;
+  }
 }

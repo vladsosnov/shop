@@ -81,3 +81,30 @@
   display: inline-block;
   margin-right: var(--space-s);
 }
+
+@media (max-width: 768px) {
+  .cart-another-list {
+    flex-direction: column;
+  }
+
+  .card:not(:last-child) {
+    margin-right: 0;
+  }
+
+  .cart-total {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .cart-total__price {
+    margin-top: 12px;
+  }
+
+  .card-price {
+    font-size: 21px;
+  }
+
+  .card-description {
+    font-size: 14px;
+  }
+}
