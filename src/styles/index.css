@@ -25,6 +25,11 @@
   --space-3xl: 72px;
 }
 
+/* --breakpoints-sm: 576px;
+--breakpoints-md: 768px;
+--breakpoints-lg: 992px;
+--breakpoints-xl: 1200px; */
+
 .container {
   max-width: 1440px;
   margin: 0 auto;

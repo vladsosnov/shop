@@ -40,3 +40,14 @@
   height: 1px;
   background-color: #c4c4c4;
 }
+
+@media (max-width: 576px) {
+  .dialog-head {
+    padding: 12px;
+  }
+
+  .dialog-head__title {
+    font-size: 18px;
+    line-height: 130%;
+  }
+}
