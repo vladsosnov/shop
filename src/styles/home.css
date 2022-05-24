@@ -180,11 +180,43 @@
 
 .filter-aside__dropdown {
   margin-bottom: var(--space-m);
-  transition: background-color 0.4s ease-in;
+  padding: 8px 12px;
+  background: #FFFFFF;
+  box-shadow: 0 1px 2px rgba(58, 58, 68, 0.24), 0 2px 4px rgba(90, 91, 106, 0.24);
+  border-radius: 4px;
 }
 
-.filter-aside__dropdown:hover {
-  background-color: var(--light-grey-color);
+.filter-aside__dropdown .dropdown-title {
+  margin-bottom: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  color: #19191D;
+}
+
+.filter-aside__dropdown .dropdown-title .icon {
+  cursor: pointer;
+}
+
+.dropdown-list__item {
+  padding: 6px 0;
+  display: flex;
+}
+
+.dropdown-checkbox {
+  display: flex;
+  width: 16px;
+  margin-right: 16px;
+  height: 16px;
+  border: 1px solid #dadada;
+  border-radius: 4px;
+}
+
+.dropdown-checkbox:checked {
+  background-color: lightgreen;
 }
 
 .home-content {
@@ -254,6 +286,7 @@
   margin-bottom: 24px;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .main-list .card {
@@ -267,20 +300,19 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 .main-features__item {
+  margin: 12px;
   width: 100%;
+  max-width: 340px;
   padding: 8px 16px 24px;
   display: flex;
   flex-direction: column;
   align-items: center;
   background-color: var(--light-grey-color);
   border-radius: 8px;
-}
-
-.main-features__item:not(:last-child) {
-  margin-right: 16px;
 }
 
 .main-features .item-title {
@@ -298,5 +330,59 @@
 .footer {
   padding: 32px 0;
   font-weight: 600;
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 1200px) {
+  .header-wrap {
+    display: none;
+  }
+
+  .filter-list {
+    justify-content: center;
+  }
+
+  .filter-list__item {
+    padding: 6px;
+  }
+}
+
+@media (max-width: 768px) {
+  .filter-aside__head {
+    margin-bottom: 16px;
+    font-size: 21px;
+  }
+
+  .home-content {
+    flex-direction: column;
+  }
+
+  .filter-aside {
+    width: 100%;
+    margin: 0 0 16px;
+  }
+
+  .filter-list__item {
+    padding: 4px;
+  }
+
+  .filter-list__item .item-title {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 582px) {
+  .main {
+    padding: 8px;
+  }
+
+  .main-list .card {
+    max-width: 100%;
+  }
+
+  .cart-counter {
+    right: 1px;
+  }
 }

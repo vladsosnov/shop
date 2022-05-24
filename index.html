@@ -5,11 +5,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Online shop</title>
-  <link rel="stylesheet" href="src/styles/select.css">
   <link rel="stylesheet" href="src/styles/home.css">
   <link rel="stylesheet" href="src/styles/card.css">
   <link rel="stylesheet" href="src/styles/reset.css">
   <link rel="stylesheet" href="src/styles/index.css">
+  <link rel="stylesheet" href="src/styles/burger-menu.css">
 </head>
 
 <body>
@@ -35,6 +35,38 @@
         <!-- <img src="src/assets/img/user-avatar.png" alt="user avatar" /> -->
       </div>
     </div>
+
+    <div class="burger-menu">
+      <img src="src/assets/img/logo.png" alt="site logotype">
+      <input id="burger-menu__toggle" type="checkbox" class="burger-menu__toggle">
+      <label for="burger-menu__toggle" class="burger-menu__btn">
+        <span></span>
+      </label>
+
+      <ul class="burger-menu__box">
+        <li>
+          <div class="header-search">
+            <img src="src/assets/icons/search.svg" alt="search icon" class="header-search__icon">
+            <input type="text" placeholder="Search..." class="header-search__input">
+            <button class="header-search__close-btn">
+              <img src="src/assets/icons/close.svg" alt="close icon">
+            </button>
+          </div>
+        </li>
+        <li>
+          <button class="header-actions__auth-btn">Sign In</button>
+        </li>
+        <li>
+          <button class="header-actions__auth-btn">Sign Up</button>
+        </li>
+        <li>
+          <a href="cart.html" target="_blank" class="header-actions__link">
+            <span class="cart-counter">5</span>
+            Cart
+          </a>
+        </li>
+      </ul>
+    </div>
   </header>
 
   <div class="container">
@@ -55,10 +87,6 @@
         <li class="filter-list__item">
           <img src="src/assets/icons/sport.svg" alt="Sport & Lifestyle" class="item-icon">
           <p class="item-title">Sport & Lifestyle</p>
-        </li>
-        <li class="filter-list__item">
-          <img src="src/assets/icons/pets.svg" alt="Pets" class="item-icon">
-          <p class="item-title">Pets</p>
         </li>
         <li class="filter-list__item">
           <img src="src/assets/icons/kitchen.svg" alt="Kitchen Accessories" class="item-icon">
@@ -98,19 +126,57 @@
         <img src="src/assets/icons/filter-variant.svg" alt="filter variant" class="icon">
         Departments
       </h3>
-      <div class="filter-aside__dropdown select-dropdown">
-        <select>
-          <option value="Option 1">First Option</option>
-          <option value="Option 2">2nd Option</option>
-          <option value="Option 3">Option Number 3</option>
-        </select>
+      <div class="filter-aside__dropdown">
+        <h3 class="dropdown-title">
+          Filter one
+          <img src="src/assets/icons/chevron.svg" alt="chevron" class="icon">
+        </h3>
+        <ul class="dropdown-list">
+          <li class="dropdown-list__item">
+            <input type="checkbox" class="dropdown-checkbox">
+            <p>
+              Recently Added
+            </p>
+          </li>
+          <li class="dropdown-list__item">
+            <input type="checkbox" class="dropdown-checkbox">
+            <p>
+              Expiring Soon
+            </p>
+          </li>
+          <li class="dropdown-list__item">
+            <input type="checkbox" class="dropdown-checkbox">
+            <p>
+              Most Rated
+            </p>
+          </li>
+        </ul>
       </div>
-      <div class="select-dropdown">
-        <select>
-          <option value="Option 1">First Option</option>
-          <option value="Option 2">2nd Option</option>
-          <option value="Option 3">Option Number 3</option>
-        </select>
+      <div class="filter-aside__dropdown">
+        <h3 class="dropdown-title">
+          Filter two
+          <img src="src/assets/icons/chevron.svg" alt="chevron" class="icon">
+        </h3>
+        <ul class="dropdown-list">
+          <li class="dropdown-list__item">
+            <input type="checkbox" class="dropdown-checkbox">
+            <p>
+              Recently Added 2
+            </p>
+          </li>
+          <li class="dropdown-list__item">
+            <input type="checkbox" class="dropdown-checkbox">
+            <p>
+              Expiring Soon 2
+            </p>
+          </li>
+          <li class="dropdown-list__item">
+            <input type="checkbox" class="dropdown-checkbox">
+            <p>
+              Most Rated 2
+            </p>
+          </li>
+        </ul>
       </div>
     </aside>
     <main class="main">
@@ -220,7 +286,7 @@
   </div>
 
   <footer class="footer">
-    <img src="src/assets/icons/all-rights-icon.svg" alt="all rights reserved">
+    <img src="src/assets/icons/all-rights-icon.svg" alt="all rights reserved">&nbsp;
     2022 All Rights Reserved.
   </footer>
 </body>
