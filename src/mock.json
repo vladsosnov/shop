@@ -1,0 +1,30 @@
+[
+  {
+    "imageName": "image-1.png",
+    "imageAlt": "typewriter",
+    "description": "Vintage Typewriter to post awesome stories about UI design and webdev.",
+    "price": "49.50",
+    "caption": "Eligible for Shipping To Mars or somewhere else"
+  },
+  {
+    "imageName": "image-2.png",
+    "imageAlt": "shoes",
+    "description": "Lee Pucker design. Leather shoes for handsome designers. Free shipping.",
+    "price": "13.95",
+    "caption": "1258 bids, 359 watchers"
+  },
+  {
+    "imageName": "image-3.png",
+    "imageAlt": "cat",
+    "description": "Timesaving kitten to save months on development. Playful, cute, cheap!",
+    "price": "128.99",
+    "caption": "Eligible for nothing :("
+  },
+  {
+    "imageName": "image-4.png",
+    "imageAlt": "plugs",
+    "description": "Plastic useless plugs and tubes for high-fidelity prototyping. Fit & Eat!",
+    "price": "12.48",
+    "caption": "Worldwide shitting available Buyers protection possible!"
+  }
+]

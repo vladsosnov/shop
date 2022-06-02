@@ -1,7 +1,23 @@
 .dialog {
-  background: #fff;
-  box-shadow: 0 22px 35px rgba(0, 0, 0, 0.12);
+  display: none;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.dialog-content {
+  background-color: #fff;
+  box-shadow: 0 22px 35px rgb(0 0 0 / 12%);
   border-radius: 26px;
+  top: 50%;
+  display: flex;
+  transform: translateY(-50%);
+  position: relative;
 }
 
 .dialog-head {

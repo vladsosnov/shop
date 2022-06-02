@@ -91,6 +91,7 @@
   box-shadow: 0px 2px 4px rgba(27, 78, 163, 0.2), 0px 4px 8px rgba(41, 121, 255, 0.2);
   border-radius: 4px;
   transition: all 0.4s ease-in;
+  cursor: pointer;
 }
 
 .cart-counter {
@@ -134,6 +135,7 @@
 
 .filter-list__item {
   min-height: 45px;
+  padding: 4px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -283,6 +285,7 @@
 }
 
 .main-list {
+  width: 100%;
   margin-bottom: 24px;
   display: flex;
   flex-wrap: wrap;
@@ -291,6 +294,7 @@
 
 .main-list .card {
   max-width: 260px;
+  /* width: 100%; */
   align-items: flex-start;
   justify-content: space-between;
 }
@@ -346,6 +350,12 @@
 
   .filter-list__item {
     padding: 6px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .main-features__item {
+    max-width: 100%;
   }
 }
 

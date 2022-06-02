@@ -8,8 +8,13 @@
   <link rel="stylesheet" href="src/styles/home.css">
   <link rel="stylesheet" href="src/styles/card.css">
   <link rel="stylesheet" href="src/styles/reset.css">
-  <link rel="stylesheet" href="src/styles/index.css">
+  <link rel="stylesheet" href="src/styles/cart.css">
+  <link rel="stylesheet" href="src/styles/card.css">
+  <link rel="stylesheet" href="src/styles/auth.css">
+  <link rel="stylesheet" href="src/styles/dialog.css">
+  <link rel="stylesheet" href="src/styles/preview.css">
   <link rel="stylesheet" href="src/styles/burger-menu.css">
+  <link rel="stylesheet" href="src/styles/index.css">
 </head>
 
 <body>
@@ -25,13 +30,13 @@
       </div>
       <div class="header-actions">
         <div class="header-actions__wrap">
-          <button class="header-actions__auth-btn">Sign In</button>
-          <button class="header-actions__auth-btn">Sign Up</button>
+          <button class="header-actions__auth-btn" id="open-sign-in-dialog">Sign In</button>
+          <button class="header-actions__auth-btn" id="open-sign-up-dialog">Sign Up</button>
         </div>
-        <a href="cart.html" target="_blank" class="header-actions__link">
+        <button class="header-actions__link" id="open-cart-dialog">
           <span class="cart-counter">5</span>
           Cart
-        </a>
+        </button>
         <!-- <img src="src/assets/img/user-avatar.png" alt="user avatar" /> -->
       </div>
     </div>
@@ -188,10 +193,10 @@
         </select>
         <div class="main-sort__control">
           <button class="main-sort__btn main-sort__btn--active">
-            <img src="src/assets/icons/view-list.svg" alt="list view">
+            <img src="src/assets/icons/view-grid.svg" alt="grid view">
           </button>
           <button class="main-sort__btn">
-            <img src="src/assets/icons/view-grid.svg" alt="grid view">
+            <img src="src/assets/icons/view-list.svg" alt="list view">
           </button>
         </div>
       </div>
@@ -206,7 +211,7 @@
               <img src="src/assets/icons/add.svg" alt="add">
               Add to cart
             </button>
-            <button class="card-control-btn">
+            <button class="card-control-btn" id="open-preview-dialog">
               <img src="src/assets/icons/watch.svg" alt="watch">
               Watch
             </button>
@@ -223,7 +228,7 @@
               <img src="src/assets/icons/add.svg" alt="add">
               Add to cart
             </button>
-            <button class="card-control-btn">
+            <button class="card-control-btn" id="open-preview-dialog">
               <img src="src/assets/icons/watch.svg" alt="watch">
               Watch
             </button>
@@ -240,7 +245,7 @@
               <img src="src/assets/icons/add.svg" alt="add">
               Add to cart
             </button>
-            <button class="card-control-btn">
+            <button class="card-control-btn" id="open-preview-dialog">
               <img src="src/assets/icons/watch.svg" alt="watch">
               Watch
             </button>
@@ -257,7 +262,7 @@
               <img src="src/assets/icons/add.svg" alt="add">
               Add to cart
             </button>
-            <button class="card-control-btn">
+            <button class="card-control-btn" id="open-preview-dialog">
               <img src="src/assets/icons/watch.svg" alt="watch">
               Watch
             </button>
@@ -289,6 +294,191 @@
     <img src="src/assets/icons/all-rights-icon.svg" alt="all rights reserved">&nbsp;
     2022 All Rights Reserved.
   </footer>
+
+  <div class="dialog" id="sign-in-dialog">
+    <div class="auth dialog-content">
+      <div class="dialog-head">
+        <h4 class="dialog-head__title">Sign In</h4>
+        <button id="close-sign-in-dialog" class="dialog-head__close-btn">
+          <img src="src/assets/icons/close-modal.svg" alt="close modal" />
+        </button>
+        <hr class="dialog-head__line">
+      </div>
+
+      <p class="auth-description">
+        Bring Change with your Code. Contribute to the open-source community.
+      </p>
+
+      <a href="sign-up.html" target="_blank" class="auth-btn">
+        Sign up
+      </a>
+
+      <div class="auth-asterisk">Or</div>
+
+      <form class="auth-form">
+        <input type="email" placeholder="Email" required="true" class="auth-form__input">
+        <input type="password" placeholder="Password" required="true" class="auth-form__input">
+        <button type="submit" class="auth-btn auth-btn--secondary">
+          Sign in
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <div class="dialog" id="sign-up-dialog">
+    <div class="auth dialog-content">
+      <div class="dialog-head">
+        <h4 class="dialog-head__title">Sign Up</h4>
+        <button id="close-sign-up-dialog" class="dialog-head__close-btn">
+          <img src="src/assets/icons/close-modal.svg" alt="close modal" />
+        </button>
+        <hr class="dialog-head__line">
+      </div>
+
+      <p class="auth-description">
+        Bring Change with your Code. Contribute to the open-source community.
+      </p>
+
+      <a href="sign-in.html" target="_blank" class="auth-btn">
+        Sign in
+      </a>
+
+      <div class="auth-asterisk">Or</div>
+
+      <form class="auth-form">
+        <div class="auth-form__name-wrap">
+          <input type="text" placeholder="First name" required="true" class="auth-form__input">
+          <input type="text" placeholder="Last name" required="true" class="auth-form__input">
+        </div>
+        <input type="email" placeholder="Email" required="true" class="auth-form__input">
+        <input type="password" placeholder="Password" required="true" class="auth-form__input">
+        <button type="submit" class="auth-btn auth-btn--secondary">
+          Create New Account
+        </button>
+      </form>
+
+      <p class="auth-terms">
+        By joining, you agree to our Terms of Service and Privacy Policy
+      </p>
+    </div>
+  </div>
+
+  <div class="dialog" id="preview-dialog">
+    <div class="preview dialog-content">
+      <div class="dialog-head">
+        <h4 class="dialog-head__title">Preview</h4>
+        <button class="dialog-head__close-btn" id="close-preview-dialog">
+          <img src="src/assets/icons/close-modal.svg" alt="close modal">
+        </button>
+        <hr class="dialog-head__line">
+      </div>
+  
+      <img src="src/assets/img/shop-items/image-1.png" alt="cat" class="preview-image" />
+  
+      <div class="preview-body">
+        <div class="preview-body__description">
+          <h5 class="description-name">Cat</h5>
+          <p class="description-text">
+            Timesaving kitten to save months on development. Playful, cute, cheap!
+          </p>
+          <p class="description-price">$128.99</p>
+        </div>
+        <button class="preview-body__btn">
+          <img src="src/assets/icons/add.svg" alt="add" class="icon">
+          Add to cart
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="dialog" id="cart-dialog">
+    <div class="cart dialog-content">
+      <div class="dialog-head">
+        <h4 class="dialog-head__title">Cart</h4>
+        <button class="dialog-head__close-btn" id="close-cart-dialog">
+          <img src="src/assets/icons/close-modal.svg" alt="close modal">
+        </button>
+        <hr class="dialog-head__line">
+      </div>
+  
+      <div class="cart-body">
+        <div class="cart-body__description">
+          <img src="src/assets/img/shop-items/image-1.png" alt="cat">
+          <div class="cart-body__wrap">
+            <h5 class="description-name">Cat</h5>
+            <p class="description-text">
+              Timesaving kitten to save months on development. Playful, cute, cheap!
+            </p>
+            <p class="description-price">$128.99</p>
+          </div>
+        </div>
+      </div>
+  
+      <div class="cart-total">
+        <button class="cart-body__btn">
+          Continue shopping
+        </button>
+        <div class="cart-total__price">
+          <p class="count">$128.99</p>
+          <button class="cart-body__btn cart-body__btn--green">Create order</button>
+        </div>
+      </div>
+  
+      <div class="cart-another">
+        <h3 class="cart-another-title">Another</h3>
+        <ul class="cart-another-list">
+          <li class="card">
+            <img src="src/assets/img/shop-items/image-1.png" alt="typewriter" />
+            <p class="card-description">Vintage Typewriter to post awesome stories about UI design and webdev.</p>
+            <p class="card-price">$49.50</p>
+          </li>
+  
+          <li class="card">
+            <img src="src/assets/img/shop-items/image-2.png" alt="shoes">
+            <p class="card-description">Lee Pucker design. Leather shoes for handsome designers. Free shipping.</p>
+            <p class="card-price">$13.95</p>
+          </li>
+  
+          <li class="card">
+            <img src="src/assets/img/shop-items/image-3.png" alt="cat">
+            <p class="card-description">Timesaving kitten to save months on development. Playful, cute, cheap!</p>
+            <p class="card-price">$128.99</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <script src="src/scripts/index.js"></script>
+  
+  <script>
+    let openCustomDialog = (dialogId, closeButtonId) => {
+      let dialog = document.getElementById(dialogId);
+      let closeButton = document.getElementById(closeButtonId);
+
+      dialog.style.display = 'block';
+
+      closeButton.onclick = () => {
+        dialog.style.display = 'none';
+      }
+    }
+
+    document.getElementById('open-sign-in-dialog').onclick = () => {
+      return openCustomDialog('sign-in-dialog', 'close-sign-in-dialog');
+    }
+
+    document.getElementById('open-sign-up-dialog').onclick = () => {
+      return openCustomDialog('sign-up-dialog', 'close-sign-up-dialog');
+    }
+
+    document.getElementById('open-preview-dialog').onclick = () => {
+      return openCustomDialog('preview-dialog', 'close-preview-dialog');
+    }
+
+    document.getElementById('open-cart-dialog').onclick = () => {
+      return openCustomDialog('cart-dialog', 'close-cart-dialog');
+    }
+  </script>
 </body>
 
 </html>
