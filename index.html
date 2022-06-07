@@ -192,16 +192,17 @@
           <option value="date">By date</option>
         </select>
         <div class="main-sort__control">
-          <button class="main-sort__btn main-sort__btn--active">
+          <button class="main-sort__btn main-sort__btn--active cardViewLayoutBtn"
+            onclick="changeLayoutView('card', event)">
             <img src="src/assets/icons/view-grid.svg" alt="grid view">
           </button>
-          <button class="main-sort__btn">
+          <button class="main-sort__btn listViewLayoutBtn" onclick="changeLayoutView('list', event)">
             <img src="src/assets/icons/view-list.svg" alt="list view">
           </button>
         </div>
       </div>
       <ul class="main-list">
-        <li class="card">
+        <li class="card mainListCard">
           <img src="src/assets/img/shop-items/image-1.png" alt="typewriter">
           <p class="card-description">Vintage Typewriter to post awesome stories about UI design and webdev.</p>
           <p class="card-price">$49.50</p>
@@ -218,7 +219,7 @@
           </div>
         </li>
 
-        <li class="card">
+        <li class="card mainListCard">
           <img src="src/assets/img/shop-items/image-2.png" alt="shoes">
           <p class="card-description">Lee Pucker design. Leather shoes for handsome designers. Free shipping.</p>
           <p class="card-price">$13.95</p>
@@ -235,7 +236,7 @@
           </div>
         </li>
 
-        <li class="card">
+        <li class="card mainListCard">
           <img src="src/assets/img/shop-items/image-3.png" alt="cat">
           <p class="card-description">Timesaving kitten to save months on development. Playful, cute, cheap!</p>
           <p class="card-price">$128.99</p>
@@ -252,7 +253,7 @@
           </div>
         </li>
 
-        <li class="card">
+        <li class="card mainListCard">
           <img src="src/assets/img/shop-items/image-4.png" alt="plugs">
           <p class="card-description">Plastic useless plugs and tubes for high-fidelity prototyping. Fit & Eat!</p>
           <p class="card-price">$12.48</p>
@@ -372,9 +373,9 @@
         </button>
         <hr class="dialog-head__line">
       </div>
-  
+
       <img src="src/assets/img/shop-items/image-1.png" alt="cat" class="preview-image" />
-  
+
       <div class="preview-body">
         <div class="preview-body__description">
           <h5 class="description-name">Cat</h5>
@@ -400,7 +401,7 @@
         </button>
         <hr class="dialog-head__line">
       </div>
-  
+
       <div class="cart-body">
         <div class="cart-body__description">
           <img src="src/assets/img/shop-items/image-1.png" alt="cat">
@@ -413,7 +414,7 @@
           </div>
         </div>
       </div>
-  
+
       <div class="cart-total">
         <button class="cart-body__btn">
           Continue shopping
@@ -423,7 +424,7 @@
           <button class="cart-body__btn cart-body__btn--green">Create order</button>
         </div>
       </div>
-  
+
       <div class="cart-another">
         <h3 class="cart-another-title">Another</h3>
         <ul class="cart-another-list">
@@ -432,13 +433,13 @@
             <p class="card-description">Vintage Typewriter to post awesome stories about UI design and webdev.</p>
             <p class="card-price">$49.50</p>
           </li>
-  
+
           <li class="card">
             <img src="src/assets/img/shop-items/image-2.png" alt="shoes">
             <p class="card-description">Lee Pucker design. Leather shoes for handsome designers. Free shipping.</p>
             <p class="card-price">$13.95</p>
           </li>
-  
+
           <li class="card">
             <img src="src/assets/img/shop-items/image-3.png" alt="cat">
             <p class="card-description">Timesaving kitten to save months on development. Playful, cute, cheap!</p>
@@ -450,7 +451,7 @@
   </div>
 
   <script src="src/scripts/index.js"></script>
-  
+
   <script>
     let openCustomDialog = (dialogId, closeButtonId) => {
       let dialog = document.getElementById(dialogId);
@@ -471,8 +472,11 @@
       return openCustomDialog('sign-up-dialog', 'close-sign-up-dialog');
     }
 
-    document.getElementById('open-preview-dialog').onclick = () => {
-      return openCustomDialog('preview-dialog', 'close-preview-dialog');
+    const previewDialogs = document.querySelectorAll('[id=open-preview-dialog]');
+    for (let i = 0; i < previewDialogs.length; i++) {
+      previewDialogs[i].onclick = () => {
+        return openCustomDialog('preview-dialog', 'close-preview-dialog');
+      }
     }
 
     document.getElementById('open-cart-dialog').onclick = () => {
