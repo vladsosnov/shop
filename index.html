@@ -23,8 +23,9 @@
       <img src="src/assets/img/logo.png" alt="site logotype">
       <div class="header-search">
         <img src="src/assets/icons/search.svg" alt="search icon" class="header-search__icon">
-        <input type="text" placeholder="Search..." class="header-search__input">
-        <button class="header-search__close-btn">
+        <input type="text" placeholder="Search..." class="header-search__input" value=""
+          onchange="handleSearchType(event)">
+        <button class="header-search__clear-btn" onclick="handleClearSearchInput()">
           <img src="src/assets/icons/close.svg" alt="close icon">
         </button>
       </div>
@@ -52,8 +53,8 @@
         <li>
           <div class="header-search">
             <img src="src/assets/icons/search.svg" alt="search icon" class="header-search__icon">
-            <input type="text" placeholder="Search..." class="header-search__input">
-            <button class="header-search__close-btn">
+            <input type="text" placeholder="Search..." class="header-search__input" onchange="handleSearchType(event)">
+            <button class="header-search__clear-btn" onclick="handleClearSearchInput()">
               <img src="src/assets/icons/close.svg" alt="close icon">
             </button>
           </div>
@@ -77,7 +78,7 @@
   <div class="container">
     <div class="filters-wrap">
       <ul class="filter-list">
-        <li class="filter-list__item">
+        <li class="filter-list__item filter-list__item--active">
           <img src="src/assets/icons/clothing-shoes.svg" alt="Clothing & Shoes" class="item-icon">
           <p class="item-title">Clothing & Shoes</p>
         </li>
@@ -131,52 +132,56 @@
         <img src="src/assets/icons/filter-variant.svg" alt="filter variant" class="icon">
         Departments
       </h3>
-      <div class="filter-aside__dropdown">
+      <div class="filter-aside__dropdown firstFilterDropdown">
         <h3 class="dropdown-title">
           Filter one
-          <img src="src/assets/icons/chevron.svg" alt="chevron" class="icon">
+          <button onclick="handleFilterClick('firstFilterDropdown')">
+            <img src="src/assets/icons/chevron.svg" alt="chevron" class="icon">
+          </button>
         </h3>
         <ul class="dropdown-list">
           <li class="dropdown-list__item">
-            <input type="checkbox" class="dropdown-checkbox">
+            <input type="checkbox" class="dropdown-checkbox" onclick="handleFilterCheckbox('Recently Added')">
             <p>
               Recently Added
             </p>
           </li>
           <li class="dropdown-list__item">
-            <input type="checkbox" class="dropdown-checkbox">
+            <input type="checkbox" class="dropdown-checkbox" onclick="handleFilterCheckbox('Expiring Soon')">
             <p>
               Expiring Soon
             </p>
           </li>
           <li class="dropdown-list__item">
-            <input type="checkbox" class="dropdown-checkbox">
+            <input type="checkbox" class="dropdown-checkbox" onclick="handleFilterCheckbox('Most Rated')">
             <p>
               Most Rated
             </p>
           </li>
         </ul>
       </div>
-      <div class="filter-aside__dropdown">
+      <div class="filter-aside__dropdown secondFilterDropdown">
         <h3 class="dropdown-title">
           Filter two
-          <img src="src/assets/icons/chevron.svg" alt="chevron" class="icon">
+          <button onclick="handleFilterClick('secondFilterDropdown')">
+            <img src="src/assets/icons/chevron.svg" alt="chevron" class="icon">
+          </button>
         </h3>
         <ul class="dropdown-list">
           <li class="dropdown-list__item">
-            <input type="checkbox" class="dropdown-checkbox">
+            <input type="checkbox" class="dropdown-checkbox" onclick="handleFilterCheckbox('Recently Added 2')">
             <p>
               Recently Added 2
             </p>
           </li>
           <li class="dropdown-list__item">
-            <input type="checkbox" class="dropdown-checkbox">
+            <input type="checkbox" class="dropdown-checkbox" onclick="handleFilterCheckbox('Expiring Soon 2')">
             <p>
               Expiring Soon 2
             </p>
           </li>
           <li class="dropdown-list__item">
-            <input type="checkbox" class="dropdown-checkbox">
+            <input type="checkbox" class="dropdown-checkbox" onclick="handleFilterCheckbox('Most Rated 2')">
             <p>
               Most Rated 2
             </p>
@@ -186,7 +191,7 @@
     </aside>
     <main class="main">
       <div class="main-sort">
-        <select name="sort" class="main-sort__select">
+        <select name="sort" class="main-sort__select" onchange="handleSortChange(event)">
           <option value="uselessFirst" selected>Useless first</option>
           <option value="uselessLast">Useless last</option>
           <option value="date">By date</option>
@@ -208,11 +213,11 @@
           <p class="card-price">$49.50</p>
           <p class="card-caption">Eligible for Shipping To Mars or somewhere else</p>
           <div class="card-btns-wrap">
-            <button class="card-control-btn">
+            <button class="card-control-btn addToCartFromList">
               <img src="src/assets/icons/add.svg" alt="add">
               Add to cart
             </button>
-            <button class="card-control-btn" id="open-preview-dialog">
+            <button class="card-control-btn watchArticleFromList">
               <img src="src/assets/icons/watch.svg" alt="watch">
               Watch
             </button>
@@ -225,11 +230,11 @@
           <p class="card-price">$13.95</p>
           <p class="card-caption">1258 bids, 359 watchers</p>
           <div class="card-btns-wrap">
-            <button class="card-control-btn">
+            <button class="card-control-btn addToCartFromList">
               <img src="src/assets/icons/add.svg" alt="add">
               Add to cart
             </button>
-            <button class="card-control-btn" id="open-preview-dialog">
+            <button class="card-control-btn watchArticleFromList">
               <img src="src/assets/icons/watch.svg" alt="watch">
               Watch
             </button>
@@ -242,11 +247,11 @@
           <p class="card-price">$128.99</p>
           <p class="card-caption">Eligible for nothing :(</p>
           <div class="card-btns-wrap">
-            <button class="card-control-btn">
+            <button class="card-control-btn addToCartFromList">
               <img src="src/assets/icons/add.svg" alt="add">
               Add to cart
             </button>
-            <button class="card-control-btn" id="open-preview-dialog">
+            <button class="card-control-btn watchArticleFromList">
               <img src="src/assets/icons/watch.svg" alt="watch">
               Watch
             </button>
@@ -259,11 +264,11 @@
           <p class="card-price">$12.48</p>
           <p class="card-caption">Wordwide shitting available Buyers protection possible!</p>
           <div class="card-btns-wrap">
-            <button class="card-control-btn">
+            <button class="card-control-btn addToCartFromList">
               <img src="src/assets/icons/add.svg" alt="add">
               Add to cart
             </button>
-            <button class="card-control-btn" id="open-preview-dialog">
+            <button class="card-control-btn watchArticleFromList">
               <img src="src/assets/icons/watch.svg" alt="watch">
               Watch
             </button>
@@ -316,10 +321,12 @@
 
       <div class="auth-asterisk">Or</div>
 
-      <form class="auth-form">
-        <input type="email" placeholder="Email" required="true" class="auth-form__input">
-        <input type="password" placeholder="Password" required="true" class="auth-form__input">
-        <button type="submit" class="auth-btn auth-btn--secondary">
+      <form class="auth-form" onsubmit="handleSignInSubmit(event)">
+        <input type="email" placeholder="Email" required="true" class="auth-form__input signInFormEmail" value="">
+        <input type="password" placeholder="Password" required="true" class="auth-form__input signInFormPassword"
+          value="">
+        <button type="submit" id="submit-sign-in" class="auth-btn auth-btn--secondary"
+          onsubmit="handleSignInSubmit(event)">
           Sign in
         </button>
       </form>
@@ -384,7 +391,7 @@
           </p>
           <p class="description-price">$128.99</p>
         </div>
-        <button class="preview-body__btn">
+        <button class="preview-body__btn addToCartFromList">
           <img src="src/assets/icons/add.svg" alt="add" class="icon">
           Add to cart
         </button>
@@ -413,6 +420,26 @@
             <p class="description-price">$128.99</p>
           </div>
         </div>
+        <div class="cart-body__description">
+          <img src="src/assets/img/shop-items/image-1.png" alt="cat">
+          <div class="cart-body__wrap">
+            <h5 class="description-name">Cat</h5>
+            <p class="description-text">
+              Timesaving kitten to save months on development. Playful, cute, cheap!
+            </p>
+            <p class="description-price">$128.99</p>
+          </div>
+        </div>
+        <div class="cart-body__description">
+          <img src="src/assets/img/shop-items/image-1.png" alt="cat">
+          <div class="cart-body__wrap">
+            <h5 class="description-name">Cat</h5>
+            <p class="description-text">
+              Timesaving kitten to save months on development. Playful, cute, cheap!
+            </p>
+            <p class="description-price">$128.99</p>
+          </div>
+        </div>
       </div>
 
       <div class="cart-total">
@@ -421,7 +448,7 @@
         </button>
         <div class="cart-total__price">
           <p class="count">$128.99</p>
-          <button class="cart-body__btn cart-body__btn--green">Create order</button>
+          <button class="cart-body__btn cart-body__btn--green" onclick="handleCreateOrder()">Create order</button>
         </div>
       </div>
 
@@ -451,38 +478,6 @@
   </div>
 
   <script src="src/scripts/index.js"></script>
-
-  <script>
-    let openCustomDialog = (dialogId, closeButtonId) => {
-      let dialog = document.getElementById(dialogId);
-      let closeButton = document.getElementById(closeButtonId);
-
-      dialog.style.display = 'block';
-
-      closeButton.onclick = () => {
-        dialog.style.display = 'none';
-      }
-    }
-
-    document.getElementById('open-sign-in-dialog').onclick = () => {
-      return openCustomDialog('sign-in-dialog', 'close-sign-in-dialog');
-    }
-
-    document.getElementById('open-sign-up-dialog').onclick = () => {
-      return openCustomDialog('sign-up-dialog', 'close-sign-up-dialog');
-    }
-
-    const previewDialogs = document.querySelectorAll('[id=open-preview-dialog]');
-    for (let i = 0; i < previewDialogs.length; i++) {
-      previewDialogs[i].onclick = () => {
-        return openCustomDialog('preview-dialog', 'close-preview-dialog');
-      }
-    }
-
-    document.getElementById('open-cart-dialog').onclick = () => {
-      return openCustomDialog('cart-dialog', 'close-cart-dialog');
-    }
-  </script>
 </body>
 
 </html>

@@ -12,10 +12,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .cart-body__description {
   display: flex;
+  max-width: 360px;
 }
 
 .cart-body__wrap {
