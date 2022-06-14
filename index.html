@@ -77,52 +77,7 @@
 
   <div class="container">
     <div class="filters-wrap">
-      <ul class="filter-list">
-        <li class="filter-list__item filter-list__item--active">
-          <img src="src/assets/icons/clothing-shoes.svg" alt="Clothing & Shoes" class="item-icon">
-          <p class="item-title">Clothing & Shoes</p>
-        </li>
-        <li class="filter-list__item">
-          <img src="src/assets/icons/entertainment.svg" alt="Entertainment" class="item-icon">
-          <p class="item-title">Entertainment</p>
-        </li>
-        <li class="filter-list__item">
-          <img src="src/assets/icons/music.svg" alt="Music" class="item-icon">
-          <p class="item-title">Music</p>
-        </li>
-        <li class="filter-list__item">
-          <img src="src/assets/icons/sport.svg" alt="Sport & Lifestyle" class="item-icon">
-          <p class="item-title">Sport & Lifestyle</p>
-        </li>
-        <li class="filter-list__item">
-          <img src="src/assets/icons/kitchen.svg" alt="Kitchen Accessories" class="item-icon">
-          <p class="item-title">Kitchen Accessories</p>
-        </li>
-        <li class="filter-list__item">
-          <img src="src/assets/icons/travel.svg" alt="Travel Equipment" class="item-icon">
-          <p class="item-title">Travel Equipment</p>
-        </li>
-        <li class="filter-list__item">
-          <img src="src/assets/icons/garden.svg" alt="Growing & Garden" class="item-icon">
-          <p class="item-title">Growing & Garden</p>
-        </li>
-        <li class="filter-list__item">
-          <img src="src/assets/icons/electrical.svg" alt="Electrical Tools" class="item-icon">
-          <p class="item-title">Electrical Tools</p>
-        </li>
-        <li class="filter-list__item">
-          <img src="src/assets/icons/mother-care.svg" alt="Mother Care" class="item-icon">
-          <p class="item-title">Mother Care</p>
-        </li>
-        <li class="filter-list__item">
-          <img src="src/assets/icons/toys.svg" alt="Toys & Entertainment" class="item-icon">
-          <p class="item-title">Toys & Entertainment</p>
-        </li>
-        <li class="filter-list__item">
-          <img src="src/assets/icons/vintage.svg" alt="Vintage" class="item-icon">
-          <p class="item-title">Vintage</p>
-        </li>
-      </ul>
+      <ul id="filter-list" class="filter-list"> </ul>
     </div>
   </div>
 
@@ -206,75 +161,8 @@
           </button>
         </div>
       </div>
-      <ul class="main-list">
-        <li class="card mainListCard">
-          <img src="src/assets/img/shop-items/image-1.png" alt="typewriter">
-          <p class="card-description">Vintage Typewriter to post awesome stories about UI design and webdev.</p>
-          <p class="card-price">$49.50</p>
-          <p class="card-caption">Eligible for Shipping To Mars or somewhere else</p>
-          <div class="card-btns-wrap">
-            <button class="card-control-btn addToCartFromList">
-              <img src="src/assets/icons/add.svg" alt="add">
-              Add to cart
-            </button>
-            <button class="card-control-btn watchArticleFromList">
-              <img src="src/assets/icons/watch.svg" alt="watch">
-              Watch
-            </button>
-          </div>
-        </li>
 
-        <li class="card mainListCard">
-          <img src="src/assets/img/shop-items/image-2.png" alt="shoes">
-          <p class="card-description">Lee Pucker design. Leather shoes for handsome designers. Free shipping.</p>
-          <p class="card-price">$13.95</p>
-          <p class="card-caption">1258 bids, 359 watchers</p>
-          <div class="card-btns-wrap">
-            <button class="card-control-btn addToCartFromList">
-              <img src="src/assets/icons/add.svg" alt="add">
-              Add to cart
-            </button>
-            <button class="card-control-btn watchArticleFromList">
-              <img src="src/assets/icons/watch.svg" alt="watch">
-              Watch
-            </button>
-          </div>
-        </li>
-
-        <li class="card mainListCard">
-          <img src="src/assets/img/shop-items/image-3.png" alt="cat">
-          <p class="card-description">Timesaving kitten to save months on development. Playful, cute, cheap!</p>
-          <p class="card-price">$128.99</p>
-          <p class="card-caption">Eligible for nothing :(</p>
-          <div class="card-btns-wrap">
-            <button class="card-control-btn addToCartFromList">
-              <img src="src/assets/icons/add.svg" alt="add">
-              Add to cart
-            </button>
-            <button class="card-control-btn watchArticleFromList">
-              <img src="src/assets/icons/watch.svg" alt="watch">
-              Watch
-            </button>
-          </div>
-        </li>
-
-        <li class="card mainListCard">
-          <img src="src/assets/img/shop-items/image-4.png" alt="plugs">
-          <p class="card-description">Plastic useless plugs and tubes for high-fidelity prototyping. Fit & Eat!</p>
-          <p class="card-price">$12.48</p>
-          <p class="card-caption">Wordwide shitting available Buyers protection possible!</p>
-          <div class="card-btns-wrap">
-            <button class="card-control-btn addToCartFromList">
-              <img src="src/assets/icons/add.svg" alt="add">
-              Add to cart
-            </button>
-            <button class="card-control-btn watchArticleFromList">
-              <img src="src/assets/icons/watch.svg" alt="watch">
-              Watch
-            </button>
-          </div>
-        </li>
-      </ul>
+      <ul id="main-shop-list" class="main-list"></ul>
 
       <ul class="main-features">
         <li class="main-features__item">
@@ -371,33 +259,7 @@
     </div>
   </div>
 
-  <div class="dialog" id="preview-dialog">
-    <div class="preview dialog-content">
-      <div class="dialog-head">
-        <h4 class="dialog-head__title">Preview</h4>
-        <button class="dialog-head__close-btn" id="close-preview-dialog">
-          <img src="src/assets/icons/close-modal.svg" alt="close modal">
-        </button>
-        <hr class="dialog-head__line">
-      </div>
-
-      <img src="src/assets/img/shop-items/image-1.png" alt="cat" class="preview-image" />
-
-      <div class="preview-body">
-        <div class="preview-body__description">
-          <h5 class="description-name">Cat</h5>
-          <p class="description-text">
-            Timesaving kitten to save months on development. Playful, cute, cheap!
-          </p>
-          <p class="description-price">$128.99</p>
-        </div>
-        <button class="preview-body__btn addToCartFromList">
-          <img src="src/assets/icons/add.svg" alt="add" class="icon">
-          Add to cart
-        </button>
-      </div>
-    </div>
-  </div>
+  <div class="dialog" id="preview-dialog"></div>
 
   <div class="dialog" id="cart-dialog">
     <div class="cart dialog-content">
