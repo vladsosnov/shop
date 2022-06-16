@@ -33,12 +33,15 @@
         <div class="header-actions__wrap">
           <button class="header-actions__auth-btn" id="open-sign-in-dialog">Sign In</button>
           <button class="header-actions__auth-btn" id="open-sign-up-dialog">Sign Up</button>
+          <img src="./src/assets/img/user-avatar.png" alt="user avatar" id="user-avatar"
+            class="header-actions__user-avatar">
         </div>
         <button class="header-actions__link" id="open-cart-dialog">
           <span class="cart-counter">5</span>
           Cart
         </button>
-        <!-- <img src="src/assets/img/user-avatar.png" alt="user avatar" /> -->
+        <button class="header-actions__auth-btn header-actions__logout-button" id="logout-button"
+          onclick="handleLogout()">Logout</button>
       </div>
     </div>
 
@@ -153,10 +156,10 @@
         </select>
         <div class="main-sort__control">
           <button class="main-sort__btn main-sort__btn--active cardViewLayoutBtn"
-            onclick="changeLayoutView('card', event)">
+            onclick="handleChangeLayoutView('card', event)">
             <img src="src/assets/icons/view-grid.svg" alt="grid view">
           </button>
-          <button class="main-sort__btn listViewLayoutBtn" onclick="changeLayoutView('list', event)">
+          <button class="main-sort__btn listViewLayoutBtn" onclick="handleChangeLayoutView('list', event)">
             <img src="src/assets/icons/view-list.svg" alt="list view">
           </button>
         </div>

@@ -80,6 +80,11 @@
   margin-right: var(--space-l);
 }
 
+.header-actions__user-avatar,
+.header-actions__logout-button {
+  display: none;
+}
+
 .header-actions__link {
   position: relative;
   margin-right: var(--space-l);

@@ -1,4 +1,10 @@
-let user = null;
+const user = {
+  name: "Petro",
+  surName: "Step",
+  age: 21,
+  email: "test@test.com",
+  password: "test@test.com",
+};
 let filter = [];
 let filterByCategory = "Clothing & Shoes";
 let sortType = "uselessFirst";
@@ -48,7 +54,6 @@ const shop = [
     category: "toys-entertainment",
   },
 ];
-let shopLayoutVariant = "list";
 let cart = [];
 let cartRecommendation = null;
 let searchValue = "";
@@ -76,7 +81,9 @@ const openCustomDialog = (dialogId, closeButtonId) => {
   const dialog = document.getElementById(dialogId);
   const closeButton = document.getElementById(closeButtonId);
 
-  dialog.style.display = "block";
+  if (!dialog.style.display) {
+    dialog.style.display = "block";
+  }
 
   closeButton.onclick = () => {
     dialog.innerHTML = "";
@@ -84,7 +91,15 @@ const openCustomDialog = (dialogId, closeButtonId) => {
   };
 };
 
-const changeLayoutView = (type) => {
+const closeCustomDialog = (dialogId) => {
+  const dialog = document.getElementById(dialogId);
+
+  dialog.innerHTML = "";
+  dialog.style.display = "none";
+};
+
+const handleChangeLayoutView = (type) => {
+  localStorage.setItem("shopLayoutVariant", type);
   const mainList = document.getElementsByClassName("main-list")[0];
   const mainListCards = document.getElementsByClassName("mainListCard");
   const cardViewLayoutBtn =
@@ -138,10 +153,11 @@ const handleSignInSubmit = (event) => {
   const email = document.getElementsByClassName("signInFormEmail")[0];
   const password = document.getElementsByClassName("signInFormPassword")[0];
 
-  return {
-    email: email.value,
-    password: password.value,
-  };
+  if (email.value === user.email && password.value === user.password) {
+    localStorage.setItem("user", JSON.stringify(user));
+    setHeader();
+    closeCustomDialog("sign-in-dialog", "submit-sign-in");
+  }
 };
 
 const handleCreateOrder = () => {
@@ -216,8 +232,6 @@ const generateDynamicCards = () => {
   });
 };
 
-generateDynamicCards();
-
 const generatePreviewDialog = (id) => {
   const article = shop.find((item) => item.id === id);
   const previewDialog = document.getElementById("preview-dialog");
@@ -273,8 +287,6 @@ const generateFilterList = () => {
   });
 };
 
-generateFilterList();
-
 const handleFilterCategoryClick = (event) => {
   const filterType = event.target.dataset.filtercategory;
   event.target.classList.toggle("filter-list__item--active");
@@ -289,29 +301,84 @@ const handleFilterCategoryClick = (event) => {
   generateDynamicCards();
 };
 
-document.getElementById("open-sign-in-dialog").onclick = () => {
-  return openCustomDialog("sign-in-dialog", "close-sign-in-dialog");
-};
-
-document.getElementById("open-sign-up-dialog").onclick = () => {
-  return openCustomDialog("sign-up-dialog", "close-sign-up-dialog");
-};
-
-const previewDialogs = document.getElementsByClassName("watchArticleFromList");
-for (let i = 0; i < previewDialogs.length; i++) {
-  previewDialogs[i].onclick = () => {
-    generatePreviewDialog(previewDialogs[i].id);
-    return openCustomDialog("preview-dialog", "close-preview-dialog");
+const generateDialogs = () => {
+  document.getElementById("open-sign-in-dialog").onclick = () => {
+    return openCustomDialog("sign-in-dialog", "close-sign-in-dialog");
   };
-}
 
-const addToCartFromList = document.getElementsByClassName("addToCartFromList");
-for (let i = 0; i < addToCartFromList.length; i++) {
-  addToCartFromList[i].onclick = () => {
-    console.log(addToCartFromList[i]);
+  document.getElementById("open-sign-up-dialog").onclick = () => {
+    return openCustomDialog("sign-up-dialog", "close-sign-up-dialog");
   };
-}
 
-document.getElementById("open-cart-dialog").onclick = () => {
-  return openCustomDialog("cart-dialog", "close-cart-dialog");
+  const previewDialogs = document.getElementsByClassName(
+    "watchArticleFromList"
+  );
+  for (let i = 0; i < previewDialogs.length; i++) {
+    previewDialogs[i].onclick = () => {
+      generatePreviewDialog(previewDialogs[i].id);
+      return openCustomDialog("preview-dialog", "close-preview-dialog");
+    };
+  }
+
+  const addToCartFromList =
+    document.getElementsByClassName("addToCartFromList");
+  for (let i = 0; i < addToCartFromList.length; i++) {
+    addToCartFromList[i].onclick = () => {
+      console.log(addToCartFromList[i]);
+    };
+  }
+
+  document.getElementById("open-cart-dialog").onclick = () => {
+    return openCustomDialog("cart-dialog", "close-cart-dialog");
+  };
 };
+
+const setDefaultLayout = () => {
+  const currentShopVariant = localStorage.getItem("shopLayoutVariant");
+
+  if (currentShopVariant) {
+    handleChangeLayoutView(currentShopVariant);
+  }
+};
+
+const setHeader = () => {
+  const logoutButton = document.getElementById("logout-button");
+  const userAvatar = document.getElementById("user-avatar");
+  const cartButton = document.getElementById("open-cart-dialog");
+  const signInButton = document.getElementById("open-sign-in-dialog");
+  const signUpButton = document.getElementById("open-sign-up-dialog");
+
+  if (isUserAuthorized()) {
+    logoutButton.style.display = "flex";
+    userAvatar.style.display = "block";
+    signUpButton.style.display = "none";
+    signInButton.style.display = "none";
+  } else {
+    cartButton.style.display = "none";
+    userAvatar.style.display = "none";
+    signUpButton.style.display = "flex";
+    signInButton.style.display = "flex";
+    logoutButton.style.display = "none";
+  }
+};
+
+const isUserAuthorized = () => {
+  if (localStorage.getItem("user")) {
+    return true;
+  }
+};
+
+const handleLogout = () => {
+  localStorage.removeItem("user");
+  setHeader();
+};
+
+document.addEventListener("DOMContentLoaded", (event) => {
+  console.log("DOMContentLoaded event => ", event);
+
+  setHeader();
+  generateDynamicCards();
+  generateFilterList();
+  generateDialogs();
+  setDefaultLayout();
+});
