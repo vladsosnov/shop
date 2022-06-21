@@ -54,7 +54,7 @@ const shop = [
     category: "toys-entertainment",
   },
 ];
-let cart = [];
+const cart = JSON.parse(localStorage.getItem("cart")) || [];
 let cartRecommendation = null;
 let searchValue = "";
 let previewArticleId = "";
@@ -136,7 +136,6 @@ const handleFilterClick = (filterName) => {
 
 const handleFilterCheckbox = (value) => {
   filter.push(value);
-  console.log("filter = ", filter);
 };
 
 const handleSearchType = (event) => {
@@ -213,7 +212,7 @@ const generateDynamicCards = () => {
       <p class="card-price">$${article.price}</p>
       <p class="card-caption">${article.caption}</p>
       <div class="card-btns-wrap">
-        <button class="card-control-btn addToCartFromList">
+        <button id=${article.id} class="card-control-btn addToCartFromList">
           <img src="src/assets/icons/add.svg" alt="add">
           Add to cart
         </button>
@@ -301,6 +300,186 @@ const handleFilterCategoryClick = (event) => {
   generateDynamicCards();
 };
 
+const setDefaultLayout = () => {
+  const currentShopVariant = localStorage.getItem("shopLayoutVariant");
+
+  if (currentShopVariant) {
+    handleChangeLayoutView(currentShopVariant);
+  }
+};
+
+const setHeader = () => {
+  const logoutButton = document.getElementById("logout-button");
+  const userAvatar = document.getElementById("user-avatar");
+  const cartButton = document.getElementById("open-cart-dialog");
+  const signInButton = document.getElementById("open-sign-in-dialog");
+  const signUpButton = document.getElementById("open-sign-up-dialog");
+
+  if (isUserAuthorized()) {
+    logoutButton.style.display = "flex";
+    userAvatar.style.display = "block";
+    cartButton.style.display = "flex";
+    signUpButton.style.display = "none";
+    signInButton.style.display = "none";
+  } else {
+    cartButton.style.display = "none";
+    userAvatar.style.display = "none";
+    signUpButton.style.display = "flex";
+    signInButton.style.display = "flex";
+    logoutButton.style.display = "none";
+  }
+};
+
+const isUserAuthorized = () => {
+  if (localStorage.getItem("user")) {
+    return true;
+  }
+};
+
+const generateCart = () => {
+  const cartCounter = document.getElementById("cart-counter");
+  cartCounter.innerHTML = cart.length;
+  const cartDialog = document.getElementById("cart-dialog");
+  const sumCartTotal = cart.reduce((acc, ar) => acc + Number(ar?.price), 0);
+  const dialogWrapperTest = document.createElement("span");
+  if (cart.length === 0) {
+    const cartDialogHtml = `
+      <div class="cart dialog-content">
+        <div class="dialog-head">
+          <h4 class="dialog-head__title">Cart</h4>
+          <button class="dialog-head__close-btn" id="close-cart-dialog">
+            <img src="src/assets/icons/close-modal.svg" alt="close modal">
+          </button>
+          <hr class="dialog-head__line">
+        </div>
+
+        <div class="cart-body">Empty articles</div>
+  
+        <div class="cart-total">
+          <button class="cart-body__btn">
+            Continue shopping
+          </button>
+          <div class="cart-total__price">
+            <p class="count">Total: $0</p>
+          </div>
+        </div>
+  
+        <div class="cart-another">
+          <h3 class="cart-another-title">Another</h3>
+          <ul class="cart-another-list">
+            <li class="card">
+              <img src="src/assets/img/shop-items/image-1.png" alt="typewriter" />
+              <p class="card-description">Vintage Typewriter to post awesome stories about UI design and webdev.</p>
+              <p class="card-price">$49.50</p>
+            </li>
+  
+            <li class="card">
+              <img src="src/assets/img/shop-items/image-2.png" alt="shoes">
+              <p class="card-description">Lee Pucker design. Leather shoes for handsome designers. Free shipping.</p>
+              <p class="card-price">$13.95</p>
+            </li>
+  
+            <li class="card">
+              <img src="src/assets/img/shop-items/image-3.png" alt="cat">
+              <p class="card-description">Timesaving kitten to save months on development. Playful, cute, cheap!</p>
+              <p class="card-price">$128.99</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    `;
+
+    const articleDiv = document.createElement("span");
+    articleDiv.style.display = "initial";
+    articleDiv.innerHTML = cartDialogHtml;
+    cartDialog.appendChild(articleDiv);
+  } else {
+    const dialogWrapperTestQ = document.createElement("span");
+    const el = document.createElement("span");
+    el.style.display = "initial";
+    el.innerHTML = dialogWrapperTest.childNodes[0];
+    dialogWrapperTestQ.appendChild = el;
+
+    const cartDialogHtml = `
+        <div class="cart dialog-content">
+            <div class="dialog-head">
+              <h4 class="dialog-head__title">Cart</h4>
+              <button class="dialog-head__close-btn" id="close-cart-dialog">
+                <img src="src/assets/icons/close-modal.svg" alt="close modal">
+              </button>
+              <hr class="dialog-head__line">
+            </div>
+
+            <div id="cards-gen-here"></div>
+      
+            <div class="cart-total">
+              <button class="cart-body__btn">
+                Continue shopping
+              </button>
+              <div class="cart-total__price">
+                <p class="count">$${sumCartTotal}</p>
+                <button class="cart-body__btn cart-body__btn--green" onclick="handleCreateOrder()">Create order</button>
+              </div>
+            </div>
+      
+            <div class="cart-another">
+              <h3 class="cart-another-title">Another</h3>
+              <ul class="cart-another-list">
+                <li class="card">
+                  <img src="src/assets/img/shop-items/image-1.png" alt="typewriter" />
+                  <p class="card-description">Vintage Typewriter to post awesome stories about UI design and webdev.</p>
+                  <p class="card-price">$49.50</p>
+                </li>
+      
+                <li class="card">
+                  <img src="src/assets/img/shop-items/image-2.png" alt="shoes">
+                  <p class="card-description">Lee Pucker design. Leather shoes for handsome designers. Free shipping.</p>
+                  <p class="card-price">$13.95</p>
+                </li>
+      
+                <li class="card">
+                  <img src="src/assets/img/shop-items/image-3.png" alt="cat">
+                  <p class="card-description">Timesaving kitten to save months on development. Playful, cute, cheap!</p>
+                  <p class="card-price">$128.99</p>
+                </li>
+              </ul>
+            </div>
+          </div>
+    `;
+
+    cart.forEach((article) => {
+      cartBodyHtml = `
+        <div class="cart-body">
+          <div class="cart-body__description">
+            <img src="src/assets/img/shop-items/${article.imageName}" alt="${article.imageAlt}">
+            <div class="cart-body__wrap">
+              <h5 class="description-name">${article.description}</h5>
+              <p class="description-text">
+                ${article.caption}
+              </p>
+              <p class="description-price">$${article.price}</p>
+            </div>
+          </div>
+        </div>`;
+
+      const dialogWrapper = document.createElement("span");
+      dialogWrapper.style.display = "initial";
+      dialogWrapper.innerHTML = cartBodyHtml;
+      dialogWrapperTest.appendChild(dialogWrapper);
+    });
+
+    const dialogWrapper = document.createElement("span");
+    dialogWrapper.style.display = "initial";
+    dialogWrapper.innerHTML = cartDialogHtml;
+    cartDialog.appendChild(dialogWrapper);
+  }
+};
+
+const handleLogout = () => {
+  localStorage.removeItem("user");
+  setHeader();
+};
+
 const generateDialogs = () => {
   document.getElementById("open-sign-in-dialog").onclick = () => {
     return openCustomDialog("sign-in-dialog", "close-sign-in-dialog");
@@ -324,7 +503,11 @@ const generateDialogs = () => {
     document.getElementsByClassName("addToCartFromList");
   for (let i = 0; i < addToCartFromList.length; i++) {
     addToCartFromList[i].onclick = () => {
-      console.log(addToCartFromList[i]);
+      const id = addToCartFromList[i].id;
+      const article = shop.find((item) => item.id === id);
+
+      cart.push(article);
+      localStorage.setItem("cart", JSON.stringify(cart));
     };
   }
 
@@ -333,52 +516,13 @@ const generateDialogs = () => {
   };
 };
 
-const setDefaultLayout = () => {
-  const currentShopVariant = localStorage.getItem("shopLayoutVariant");
-
-  if (currentShopVariant) {
-    handleChangeLayoutView(currentShopVariant);
-  }
-};
-
-const setHeader = () => {
-  const logoutButton = document.getElementById("logout-button");
-  const userAvatar = document.getElementById("user-avatar");
-  const cartButton = document.getElementById("open-cart-dialog");
-  const signInButton = document.getElementById("open-sign-in-dialog");
-  const signUpButton = document.getElementById("open-sign-up-dialog");
-
-  if (isUserAuthorized()) {
-    logoutButton.style.display = "flex";
-    userAvatar.style.display = "block";
-    signUpButton.style.display = "none";
-    signInButton.style.display = "none";
-  } else {
-    cartButton.style.display = "none";
-    userAvatar.style.display = "none";
-    signUpButton.style.display = "flex";
-    signInButton.style.display = "flex";
-    logoutButton.style.display = "none";
-  }
-};
-
-const isUserAuthorized = () => {
-  if (localStorage.getItem("user")) {
-    return true;
-  }
-};
-
-const handleLogout = () => {
-  localStorage.removeItem("user");
-  setHeader();
-};
-
 document.addEventListener("DOMContentLoaded", (event) => {
   console.log("DOMContentLoaded event => ", event);
 
   setHeader();
   generateDynamicCards();
   generateFilterList();
+  generateCart();
   generateDialogs();
   setDefaultLayout();
 });
